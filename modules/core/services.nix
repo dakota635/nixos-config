@@ -2,30 +2,27 @@
 
 {
   services = {
-    # services.displayManager.sddm = {
-    #   enable = true;
-    #   package = pkgs.kdePackages.sddm;
-    #   wayland.enable = true;
-    # };
+    blueman.enable = true;
+
+    displayManager.ly.enable = true;
+
+    gvfs.enable = true;
+
+    pipewire = {
+          enable = true;
+          pulse.enable = true;
+        };
+
+    tumbler.enable = true;
+    
+    upower.enable = true;
 
     xserver = {
       enable = true;
-      displayManager.lightdm.enable = true;
       xkb = {
         layout = "us";
         variant = "";
       };
     };
-
-    pipewire.enable = true;
-    pipewire.pulse.enable = true;
-
-    blueman.enable = true;
-
-    upower.enable = true;
-
-    gvfs.enable = true;
-
-    tumbler.enable = true;
   };
 }
