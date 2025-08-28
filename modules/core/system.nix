@@ -4,6 +4,7 @@
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = with pkgs; [
+    gh
     vim
     wget
     git
