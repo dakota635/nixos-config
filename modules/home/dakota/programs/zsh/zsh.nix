@@ -13,7 +13,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "docker" ];
+      plugins = [ "git" "gh" "docker" ];
     };
   };
 }

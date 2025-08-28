@@ -9,6 +9,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  home.sessionVariables = {
+    EDITOR = "vim";
+    VISUAL = "vim";
+  };
+
   imports = [
     # App launcher
     ./programs/rofi/rofi.nix
