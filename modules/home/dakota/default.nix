@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
   imports = [
@@ -30,7 +30,6 @@
     # Shell
     ./programs/zsh/zsh.nix
     ./programs/starship/starship.nix 
-    ./programs/fzf/fzf.nix
 
     # Terminal emulator
     ./programs/ghostty/ghostty.nix

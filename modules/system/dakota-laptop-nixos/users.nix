@@ -1,10 +1,4 @@
-{
-  pkgs,
-  inputs,
-  username,
-  host,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   users.users.dakota = {
