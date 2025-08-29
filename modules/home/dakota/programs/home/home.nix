@@ -14,4 +14,17 @@
     VISUAL = "vim";
     TERMINAL = "ghostty";
   };
+
+  home.file.".config/MangoHud/MangoHud.conf".text = ''
+    cpu_stats
+    gpu_stats
+    ram
+    vram
+    io_read
+    io_write
+    fps
+    frametime
+    frametime_graph
+    background_alpha=0.3
+  '';
 }

@@ -7,6 +7,7 @@
     fastfetch
     gh
     git
+    mangohud
     spotify-player
     unimatrix
     vim

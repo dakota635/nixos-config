@@ -1,7 +1,9 @@
-{ ... }: 
+{ pkgs, ... }: 
 
 {
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    
     plymouth.enable = true;
 
     # Enable "Silent boot"
