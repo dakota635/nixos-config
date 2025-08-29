@@ -13,7 +13,6 @@
       hyprland = {
         default = [
           "hyprland"
-          "kde"
         ];
       };
     };
