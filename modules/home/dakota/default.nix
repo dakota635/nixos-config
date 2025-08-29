@@ -12,6 +12,9 @@
     # Browser
     ./applications/firefox/firefox.nix
 
+    # Gaming
+    ./applications/mangohud/mangohud.nix
+
     # GTK theme
     ./applications/gtk/gtk.nix
 
