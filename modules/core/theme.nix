@@ -1,6 +1,16 @@
 { pkgs, inputs, ... }:
 
 {
+  catppuccin = {
+    enable = true;
+
+    flavor = "mocha";
+    
+    accent = "blue";
+
+    plymouth.enable = false;
+  };
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -9,6 +19,10 @@
       sha256 = "sha256-B6OmvvgPaL5W8JR+uXiENXwStpwnNF59nLh/YErcV7I=";
     };
     polarity = "dark";
+
+    targets = {
+      grub.enable = false;
+    };
   };
 
   fonts = {

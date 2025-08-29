@@ -4,7 +4,11 @@
   services = {
     blueman.enable = true;
 
-    displayManager.ly.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      package = pkgs.kdePackages.sddm;
+      wayland.enable = true;
+    };
 
     gvfs.enable = true;
 
@@ -12,7 +16,7 @@
           enable = true;
           pulse.enable = true;
         };
-
+ 
     tumbler.enable = true;
     
     upower.enable = true;
