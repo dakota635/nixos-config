@@ -12,5 +12,6 @@
   home.sessionVariables = {
     EDITOR = "vim";
     VISUAL = "vim";
+    TERMINAL = "ghostty";
   };
 }

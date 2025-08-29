@@ -7,6 +7,7 @@
     fastfetch
     gh
     git
+    spotify-player
     unimatrix
     vim
     wget

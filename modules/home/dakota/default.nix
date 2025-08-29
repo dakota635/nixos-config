@@ -7,7 +7,7 @@
 
     # Audio
     ./programs/cava/cava.nix
-    ./programs/spotify-player/spotify-player.nix
+    #./programs/spotify-player/spotify-player.nix
 
     # Browser
     ./programs/firefox/firefox.nix
@@ -30,6 +30,7 @@
     # Shell
     ./programs/zsh/zsh.nix
     ./programs/starship/starship.nix 
+    ./programs/fzf/fzf.nix
 
     # Terminal emulator
     ./programs/ghostty/ghostty.nix
