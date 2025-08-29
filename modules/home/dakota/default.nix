@@ -3,35 +3,38 @@
 {
   imports = [
     # App launcher
-    ./programs/rofi/rofi.nix
+    ./applications/fuzzel/fuzzel.nix
 
     # Audio
-    ./programs/cava/cava.nix
-    #./programs/spotify-player/spotify-player.nix
+    ./applications/cava/cava.nix
+    ./applications/spotify-player/spotify-player.nix
 
     # Browser
-    ./programs/firefox/firefox.nix
+    ./applications/firefox/firefox.nix
 
     # GTK theme
-    ./programs/gtk/gtk.nix
+    ./applications/gtk/gtk.nix
 
     # Home and home-manager
-    ./programs/home/home.nix
+    ./applications/home/home.nix
 
     # IDE
-    ./programs/vscode/vscode.nix
+    ./applications/vscode/vscode.nix
 
     # Desktop environment / window manager
-    ./programs/hypr/hyprland-settings.nix
-    ./programs/hypr/hyprland-binds.nix
+    ./applications/hypr/hyprland-settings.nix
+    ./applications/hypr/hyprland-binds.nix
     
-    ./programs/waybar/waybar.nix
+    ./applications/waybar/waybar.nix
+
+    # Notifications
+    ./applications/mako/mako.nix
      
     # Shell
-    ./programs/zsh/zsh.nix
-    ./programs/starship/starship.nix 
+    ./applications/zsh/zsh.nix
+    ./applications/starship/starship.nix 
 
     # Terminal emulator
-    ./programs/ghostty/ghostty.nix
+    ./applications/ghostty/ghostty.nix
   ];
 }

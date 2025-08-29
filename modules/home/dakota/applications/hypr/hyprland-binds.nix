@@ -6,7 +6,7 @@
 
     "$terminal" = "ghostty";
     "$fileManager" = "dolphin";
-    "$menu" = "rofi -show drun";
+    "$menu" = "fuzzel";
 
     bind = [
       "$mainMod, Return, exec, $terminal"

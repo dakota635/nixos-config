@@ -34,7 +34,7 @@
       dakota-laptop-nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./modules/system/dakota-laptop-nixos/default.nix
+          ./modules/nixos/dakota-laptop-nixos/default.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           stylix.nixosModules.stylix

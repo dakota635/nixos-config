@@ -11,8 +11,10 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
-    VISUAL = "vim";
+    MANGOHUD = "1";
+    MANGOHUD_DLSYM = "1";
     TERMINAL = "ghostty";
+    VISUAL = "vim";
   };
 
   home.file.".config/MangoHud/MangoHud.conf".text = ''
