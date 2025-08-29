@@ -3,11 +3,9 @@
 {
   catppuccin = {
     enable = true;
-
     flavor = "mocha";
-    
+  
     accent = "blue";
-
     plymouth.enable = false;
   };
 
