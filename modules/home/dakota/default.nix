@@ -1,31 +1,22 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.username = "dakota";
-  home.homeDirectory = "/home/dakota";
-  home.stateVersion = "25.11";
-
-  programs.home-manager.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-    VISUAL = "vim";
-  };
-
   imports = [
     # App launcher
     ./programs/rofi/rofi.nix
 
     # Audio
     ./programs/cava/cava.nix
+    ./programs/spotify-player/spotify-player.nix
 
     # Browser
     ./programs/firefox/firefox.nix
 
     # GTK theme
     ./programs/gtk/gtk.nix
+
+    # Home and home-manager
+    ./programs/home/home.nix
 
     # IDE
     ./programs/vscode/vscode.nix

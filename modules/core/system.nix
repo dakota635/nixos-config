@@ -4,11 +4,12 @@
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = with pkgs; [
+    fastfetch
     gh
+    git
+    unimatrix
     vim
     wget
-    git
-    fastfetch
     xdg-utils
   ];
 
