@@ -23,12 +23,11 @@
   };
 
   outputs = {
-      self,
       catppuccin,
       home-manager,
-      hyprland,
       nixpkgs,
-      stylix
+      stylix,
+      ...
   }: {
     nixosConfigurations = {
       dakota-laptop-nixos = nixpkgs.lib.nixosSystem {

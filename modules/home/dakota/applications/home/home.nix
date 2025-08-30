@@ -11,9 +11,9 @@
     stateVersion = "25.11";
 
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
       TERMINAL = "ghostty";
-      VISUAL = "vim";
+      VISUAL = "nvim";
     };
   };
 }

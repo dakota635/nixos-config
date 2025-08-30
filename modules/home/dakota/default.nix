@@ -23,6 +23,7 @@
 
     # IDE
     ./applications/vscode/vscode.nix
+    ./applications/neovim/neovim.nix
 
     # Desktop environment / window manager
     ./applications/hypr/hyprland-settings.nix
