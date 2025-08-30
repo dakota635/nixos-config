@@ -27,6 +27,7 @@
         layout = "us";
         variant = "";
       };
+      excludePackages = [ pkgs.xterm ];
     };
   };
 }
