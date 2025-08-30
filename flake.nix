@@ -22,46 +22,27 @@
     };
   };
 
-  outputs = {
-      catppuccin,
-      home-manager,
-      nixpkgs,
-      stylix,
-      ...
-  }: {
+  outputs = { catppuccin, home-manager, nixpkgs, stylix, ... }:
+  let
+    commonModules = [
+      catppuccin.nixosModules.catppuccin
+      home-manager.nixosModules.home-manager
+      stylix.nixosModules.stylix
+      { home-manager.users.dakota = {
+          imports = [ ./modules/home/dakota/default.nix ];
+        };
+      }
+    ];
+
+    mk = machinePath: nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ machinePath ] ++ commonModules;
+    };
+  in {
     nixosConfigurations = {
-      dakota-laptop-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./modules/nixos/machines/dakota-laptop-nixos/default.nix
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
-          { 
-            home-manager.users.dakota = {
-              imports = [
-                ./modules/home/dakota/default.nix
-              ];
-            };
-          }
-        ];
-      };
-      dakota-desktop-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./modules/nixos/machines/dakota-desktop-nixos/default.nix
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
-          { 
-            home-manager.users.dakota = {
-              imports = [
-                ./modules/home/dakota/default.nix
-              ];
-            };
-          }
-        ];
-      };
+      dakota-desktop-nixos = mk ./modules/nixos/machines/dakota-desktop-nixos/default.nix;
+      dakota-laptop-nixos  = mk ./modules/nixos/machines/dakota-laptop-nixos/default.nix;
+      dakota-vmware-vm-nixos = mk ./modules/nixos/machines/dakota-vmware-vm-nixos/default.nix;
     };
   };
 }
