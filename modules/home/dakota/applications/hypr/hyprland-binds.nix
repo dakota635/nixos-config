@@ -5,7 +5,7 @@
     "$mainMod" = "SUPER";
 
     "$terminal" = "ghostty";
-    "$fileManager" = "dolphin";
+    "$fileManager" = "thunar";
     "$menu" = "fuzzel";
 
     bind = [

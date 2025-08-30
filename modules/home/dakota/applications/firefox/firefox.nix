@@ -11,6 +11,5 @@
     };
   };
 
-
   stylix.targets.firefox.profileNames = [ "dakota" ];
 }
