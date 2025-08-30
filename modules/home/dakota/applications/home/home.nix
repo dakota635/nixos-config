@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -15,5 +15,12 @@
       TERMINAL = "ghostty";
       VISUAL = "nvim";
     };
+
+    packages = with pkgs; [
+      fastfetch
+      mangohud
+      spotify-player
+      unimatrix
+    ];
   };
 }

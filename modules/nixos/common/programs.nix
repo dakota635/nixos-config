@@ -14,7 +14,6 @@
       ];
     };
     xfconf.enable = true;
-    yazi.enable = true;
     zsh.enable = true;
   };
 }
