@@ -40,9 +40,9 @@
     };
   in {
     nixosConfigurations = {
-      dakota-desktop-nixos = mk ./modules/nixos/machines/dakota-desktop-nixos/default.nix;
-      dakota-laptop-nixos  = mk ./modules/nixos/machines/dakota-laptop-nixos/default.nix;
-      dakota-vmware-vm-nixos = mk ./modules/nixos/machines/dakota-vmware-vm-nixos/default.nix;
+      dakota-desktop-nixos = mk ./modules/nixos/machine/dakota-desktop-nixos/default.nix;
+      dakota-laptop-nixos  = mk ./modules/nixos/machine/dakota-laptop-nixos/default.nix;
+      dakota-vmware-vm-nixos = mk ./modules/nixos/machine/dakota-vmware-vm-nixos/default.nix;
     };
   };
 }

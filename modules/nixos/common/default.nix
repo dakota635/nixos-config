@@ -13,6 +13,5 @@
     ./theme.nix
     ./users.nix
     ./virtualisation.nix
-    ./wayland.nix
   ];
 }

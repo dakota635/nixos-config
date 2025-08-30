@@ -4,12 +4,6 @@
   services = {
     blueman.enable = true;
 
-    displayManager.sddm = {
-      enable = true;
-      package = pkgs.kdePackages.sddm;
-      wayland.enable = true;
-    };
-
     gvfs.enable = true;
 
     pipewire = {

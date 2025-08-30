@@ -3,6 +3,7 @@
 {
   imports = [
     ../../common/default.nix
+    ../../window-manager/i3.nix
     
     ./drivers.nix
     ./hardware-configuration.nix
