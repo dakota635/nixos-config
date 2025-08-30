@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.waybar = {
@@ -19,23 +19,57 @@
           "temperature"
           "cpu"
           "memory"
+          "backlight"
           "battery"
           "bluetooth"
           "idle_inhibitor"
         ];
 
+        # Left
+        "hyprland/workspaces" = {
+          format = "{icon}";
+          on-click = "activate";
+          format-icons = { "1"=""; "2"=""; "3"=""; "4"="󰓇"; "5"="󰈙"; };
+          persistent-workspaces = { "*" = [ 1 2 3 4 5 ]; };
+        };
+        "hyprland/window" = { format = "{}"; max-length = 80; };
+
+        # Center
         "clock" = { format = "{:%a %b %d  %H:%M}"; tooltip-format = "{:%F %T}"; };
+
+        # Right
+        "cava" = {
+          framerate = 30;
+          autosens = 1;
+          bars = 14;
+          method = "pipewire";
+          bar_delimiter = 0;
+          input_delay = 4;
+          format-icons = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+          actions = { on-click-right = "mode"; };
+        };
         "wireplumber" = {
-          format = "   {volume}%";
-          format-muted = " 󰖁";
+          format = "     {volume}% ";
+          format-muted = "   󰖁 ";
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           on-scroll-up = "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+";
           on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         };
-        "network" = { format-wifi = "󰤨  {signalStrength}%"; format-ethernet = "󰈁"; format-disconnected = "󰤮"; tooltip = true; };
-        "bluetooth" = { format = ""; format-connected = " {device_alias}"; };
+        "network" = { format-wifi = "󰤨  {signalStrength}% "; format-ethernet = "󰈁 "; format-disconnected = "󰤮" ; tooltip = true; };
+        "temperature" = { format = " {temperatureC}°C "; hwmon-path = "/sys/class/thermal/thermal_zone0/temp"; };
+        "cpu" = { format = "  {usage}% "; tooltip = false; };
+        "memory" = { format = "  {used:0.0f}G "; tooltip = false; };
+        "backlight" = {
+          device = "intel_backlight";
+          format = "{icon} {percent}% ";
+          format-icons = [" " " "];
+          scroll-step = 5;
+          on-click = "brightnessctl set 10%+";
+          on-scroll-up = "brightnessctl set +5%";
+          on-scroll-down = "brightnessctl set 5%-";
+        };
         "battery" = {
-          format = "{icon} {capacity}%";
+          format = "{icon} {capacity}% ";
           states = { critical = 15; warning = 30; };
           format-icons = [
             "󰂎" # 0–10%
@@ -51,18 +85,8 @@
             "󰁹" # charging
           ];
         };
-        "cpu" = { format = "  {usage}%"; tooltip = false; };
-        "memory" = { format = "  {used:0.0f}G"; tooltip = false; };
-        "temperature" = { format = " {temperatureC}°C"; hwmon-path = "/sys/class/thermal/thermal_zone0/temp"; };
-        "idle_inhibitor" = {format = "{icon}"; format-icons = { activated = " "; deactivated = " "; }; };
-        "hyprland/window" = { format = "{}"; max-length = 80; };
-        "hyprland/workspaces" = {
-          format = "{icon}";
-          on-click = "activate";
-          format-icons = { "1"=""; "2"=""; "3"=""; "4"="󰓇"; "5"="󰈙"; };
-          persistent-workspaces = { "*" = [ 1 2 3 4 5 ]; };
-        };
-        "cava" = import ./waybar-cava.nix { };
+        "bluetooth" = { format = " " ; format-connected = " {device_alias} "; };
+        "idle_inhibitor" = {format = "{icon} "; format-icons = { activated = " "; deactivated = " "; }; };
       };
     };
   };
