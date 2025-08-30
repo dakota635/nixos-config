@@ -10,6 +10,8 @@
         position = "top";
         height = 36;
         margin = "6 0 0 0";
+        font-family = "JetBrainsMono Nerd Font Mono";
+
         modules-left   = [ "hyprland/workspaces" "hyprland/window" ];
         modules-center = [ "clock" ];
         modules-right  = [
