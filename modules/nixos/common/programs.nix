@@ -3,9 +3,17 @@
 {
   programs = {
     dconf.enable = true;
+
     file-roller.enable = true;
+
     light.enable = true;
+
     nano.enable = false;
+
+    regreet = {
+      enable = true;
+    };
+
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -14,6 +22,7 @@
       ];
     };
     xfconf.enable = true;
+
     zsh.enable = true;
   };
 }

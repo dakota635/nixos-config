@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    catppuccin.url = "github:catppuccin/nix";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -14,35 +14,60 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { catppuccin, home-manager, nixpkgs, stylix, ... }:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }:
   let
+    system = "x86_64-linux";
+
     commonModules = [
-      catppuccin.nixosModules.catppuccin
       home-manager.nixosModules.home-manager
       stylix.nixosModules.stylix
-      { home-manager.users.dakota = {
-          imports = [ ./modules/home/dakota/default.nix ];
-        };
-      }
+      ./modules/nixos/common/common-nixos.nix
     ];
 
-    mk = machinePath: nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [ machinePath ] ++ commonModules;
-    };
+    mkHost = { path, homeProfiles }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          commonModules ++ [
+            path
+            { home-manager.users.dakota = {
+                imports =
+                  [ ./modules/home/dakota/profiles/common-home-profile.nix ]
+                  ++ homeProfiles;
+              };
+            }
+          ];
+      };
   in {
     nixosConfigurations = {
-      dakota-desktop-nixos = mk ./modules/nixos/machine/dakota-desktop-nixos/default.nix;
-      dakota-laptop-nixos  = mk ./modules/nixos/machine/dakota-laptop-nixos/default.nix;
-      dakota-vmware-vm-nixos = mk ./modules/nixos/machine/dakota-vmware-vm-nixos/default.nix;
+      dakota-desktop-nixos = mkHost {
+        path = ./modules/nixos/machine/dakota-desktop-nixos/dakota-desktop-nixos.nix;
+        homeProfiles = [
+          ./modules/home/dakota/profiles/hyprland-home-profile.nix
+          ./modules/home/dakota/profiles/i3-home-profile.nix
+        ];
+      };
+
+      dakota-laptop-nixos = mkHost {
+        path = ./modules/nixos/machine/dakota-laptop-nixos/dakota-laptop-nixos.nix;
+        homeProfiles = [
+          ./modules/home/dakota/profiles/hyprland-home-profile.nix
+          ./modules/home/dakota/profiles/i3-home-profile.nix
+        ];
+      };
+
+      dakota-vmware-vm-nixos = mkHost {
+        path = ./modules/nixos/machine/dakota-vmware-vm-nixos/dakota-vmware-vm-nixos.nix;
+        homeProfiles = [
+          ./modules/home/dakota/profiles/i3-home-profile.nix
+        ];
+      };
     };
   };
 }
