@@ -6,8 +6,6 @@
     package = pkgs.i3-gaps;
 
     config = rec {
-      modifier = "Mod4";
-
       bars = [
         (
           {
@@ -16,12 +14,17 @@
           // config.stylix.targets.i3.exportedBarConfig
         )
       ];
+
       window.border = 0;
 
       gaps = {
         inner = 15;
         outer = 5;
       };
+
+      terminal = "${pkgs.ghostty}/bin/ghostty";
+
+      modifier = "Mod4";
 
       keybindings = lib.mkOptionDefault {
 
