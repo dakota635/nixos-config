@@ -11,6 +11,12 @@
           pulse.enable = true;
         };
  
+   displayManager.sddm = {
+      enable = true;
+      package = pkgs.kdePackages.sddm;
+      wayland.enable = true;
+    };
+
     tumbler.enable = true;
     
     upower.enable = true;
