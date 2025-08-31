@@ -1,4 +1,1 @@
-result
-result-*
-.direnv/
-.cache/
+hardware-configuration.nix
