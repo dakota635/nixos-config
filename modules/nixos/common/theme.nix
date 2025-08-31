@@ -3,16 +3,16 @@
 {
   catppuccin = {
     enable = true;
-    flavor = "mocha";
+    flavor = "latte";
   
-    accent = "blue";
+    accent = "green";
     plymouth.enable = false;
   };
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    image = ./assets/wallpaper/synthwave-axiom-design.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    image = ./assets/wallpaper/forest-studio-ghibli.png;
     polarity = "dark";
 
     targets = {
