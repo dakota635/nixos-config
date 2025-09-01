@@ -14,13 +14,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprlang.follows = "hyprland/hyprlang";
+    };
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -33,6 +39,7 @@
     mkHost = { path, homeProfiles }:
       nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; }; 
         modules =
           commonModules ++ [
             path

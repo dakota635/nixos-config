@@ -3,10 +3,10 @@
 {
   imports = [
     ./boot.nix
-    ./environment.nix
     ./fonts.nix
     ./hardware.nix
     ./networking.nix
+    ./packages.nix
     ./programs.nix
     ./services.nix
     ./steam.nix
