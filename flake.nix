@@ -57,7 +57,6 @@
         path = ./modules/nixos/machine/dakota-desktop-nixos/dakota-desktop-nixos.nix;
         homeProfiles = [
           ./modules/home/dakota/profiles/hyprland-home-profile.nix
-          ./modules/home/dakota/profiles/i3-home-profile.nix
         ];
       };
 
@@ -65,7 +64,6 @@
         path = ./modules/nixos/machine/dakota-laptop-nixos/dakota-laptop-nixos.nix;
         homeProfiles = [
           ./modules/home/dakota/profiles/hyprland-home-profile.nix
-          ./modules/home/dakota/profiles/i3-home-profile.nix
         ];
       };
 

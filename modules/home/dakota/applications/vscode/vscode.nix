@@ -6,7 +6,16 @@
     
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
+        # Java
+        redhat.java
+        vscjava.vscode-java-pack
+        
+        # Nix
         bbenoist.nix
+
+        # Python
+        ms-python.python
+        ms-toolsai.jupyter
       ];
 
       userSettings = {

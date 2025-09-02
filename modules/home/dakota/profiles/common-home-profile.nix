@@ -20,6 +20,7 @@
 
     # IDE
     ../applications/vscode/vscode.nix
+    ../applications/vscode/jupyter-kernel-support.nix
     ../applications/neovim/neovim.nix
      
     # Shell
