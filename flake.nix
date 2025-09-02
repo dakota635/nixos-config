@@ -30,48 +30,56 @@
   let
     system = "x86_64-linux";
 
-    commonModules = [
-      home-manager.nixosModules.home-manager
-      stylix.nixosModules.stylix
-      ./modules/nixos/common/common-nixos.nix
-    ];
+    desktopEnvs = {
+      gnome = {
+        system = ./modules/nixos/desktop-environment/gnome.nix;
+        home = ./modules/home/dakota/profiles/gnome-home-profile.nix;
+      };
+      hyprland = {
+        system = ./modules/nixos/window-manager/hyprland.nix;
+        home = ./modules/home/dakota/profiles/hyprland-home-profile.nix;
+      };
+      i3 = {
+        system = ./modules/nixos/window-manager/hyprland.nix;
+        home = ./modules/home/dakota/profiles/hyprland-home-profile.nix;
+      };
+    };
 
-    mkHost = { path, homeProfiles }:
+    machineTemplate = { machinePath, desktopEnv }:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; }; 
-        modules =
-          commonModules ++ [
-            path
-            { home-manager.users.dakota = {
-                imports =
-                  [ ./modules/home/dakota/profiles/common-home-profile.nix ]
-                  ++ homeProfiles;
-              };
-            }
-          ];
+        specialArgs = { inherit inputs; };
+        modules = [
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+          ./modules/nixos/common/common-nixos.nix
+          machinePath
+          desktopEnv.system
+          {
+            home-manager.users.dakota = {
+              imports = [
+                ./modules/home/dakota/profiles/common-home-profile.nix
+                desktopEnv.home
+              ];
+            };
+          }
+        ];
       };
   in {
     nixosConfigurations = {
-      dakota-desktop-nixos = mkHost {
-        path = ./modules/nixos/machine/dakota-desktop-nixos/dakota-desktop-nixos.nix;
-        homeProfiles = [
-          ./modules/home/dakota/profiles/hyprland-home-profile.nix
-        ];
+      dakota-desktop-nixos = machineTemplate {
+        machinePath = ./modules/nixos/machine/dakota-desktop-nixos/dakota-desktop-nixos.nix;
+        desktopEnv = desktopEnvs.hyprland;
       };
 
-      dakota-laptop-nixos = mkHost {
-        path = ./modules/nixos/machine/dakota-laptop-nixos/dakota-laptop-nixos.nix;
-        homeProfiles = [
-          ./modules/home/dakota/profiles/hyprland-home-profile.nix
-        ];
+      dakota-laptop-nixos = machineTemplate {
+        machinePath = ./modules/nixos/machine/dakota-laptop-nixos/dakota-laptop-nixos.nix;
+        desktopEnv = desktopEnvs.gnome;
       };
 
-      dakota-vmware-vm-nixos = mkHost {
-        path = ./modules/nixos/machine/dakota-vmware-vm-nixos/dakota-vmware-vm-nixos.nix;
-        homeProfiles = [
-          ./modules/home/dakota/profiles/i3-home-profile.nix
-        ];
+      dakota-vmware-vm-nixos = machineTemplate {
+        machinePath = ./modules/nixos/machine/dakota-vmware-vm-nixos/dakota-vmware-vm-nixos.nix;
+        desktopEnv = desktopEnvs.i3;
       };
     };
   };
