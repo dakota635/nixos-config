@@ -10,6 +10,7 @@
       git
       killall
       neovim
+      tree
       xdg-utils
       xorg.xinit
 
