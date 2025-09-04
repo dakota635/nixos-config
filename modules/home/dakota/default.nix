@@ -3,43 +3,49 @@
 {
   imports = [
     # App launcher
-    ./applications/fuzzel/fuzzel.nix
+    ./applications/app-launcher/rofi/rofi.nix
 
     # Audio
-    ./applications/cava/cava.nix
-    ./applications/spotify-player/spotify-player.nix
+    ./applications/audio/cava/cava.nix
+    ./applications/audio/spotify-player/spotify-player.nix
 
     # Browser
-    ./applications/firefox/firefox.nix
+    ./applications/browser/firefox/firefox.nix
 
     # Desktop environment / window manager
-    ./applications/gnome/gnome-dconf.nix
-    ./applications/hyprland/hyprland-settings.nix
-    ./applications/hyprland/hyprland-binds.nix
-    ./applications/waybar/waybar.nix
+    ./applications/desktop-environment/gnome/gnome-dconf.nix
+    ./applications/desktop-environment/hyprland/hyprland-settings.nix
+    ./applications/desktop-environment/hyprland/hyprland-binds.nix
+    ./applications/desktop-environment/waybar/waybar.nix
+
+    # File manager
+    ./applications/file-manager/yazi/yazi.nix
 
     # Gaming
-    ./applications/mangohud/mangohud.nix
+    ./applications/gaming/mangohud/mangohud.nix
 
-    # GTK theme
-    ./applications/gtk/gtk.nix
+    # Theme
+    ./applications/theme/gtk/gtk.nix
 
-    # Home and home-manager
-    ./applications/home/home.nix
+    # Home-manager
+    ./applications/home-manager/home/home.nix
 
     # IDE
-    ./applications/vscode/vscode.nix
-    ./applications/vscode/jupyter-kernel-support.nix
-    ./applications/neovim/neovim.nix
+    ./applications/ide/vscode/vscode.nix
+    ./applications/ide/vscode/jupyter-kernel-support.nix
+    ./applications/ide/neovim/neovim.nix
 
     # Notifications
-    ./applications/mako/mako.nix
+    ./applications/notifications/mako/mako.nix
      
     # Shell
-    ./applications/zsh/zsh.nix
-    ./applications/starship/starship.nix 
+    ./applications/shell/zsh/zsh.nix
+    ./applications/shell/starship/starship.nix 
 
     # Terminal emulator
-    ./applications/alacritty/alacritty.nix
+    ./applications/terminal-emulator/alacritty/alacritty.nix
+
+    # Utilities
+    ./applications/utilities/git/git.nix
   ];
 }

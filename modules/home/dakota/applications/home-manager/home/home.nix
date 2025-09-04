@@ -12,13 +12,14 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "ghostty";
+      TERMINAL = "alacritty";
       VISUAL = "nvim";
     };
 
     packages = with pkgs; [
       fastfetch
       mangohud
+      rofi
       spotify-player
       unimatrix
     ];

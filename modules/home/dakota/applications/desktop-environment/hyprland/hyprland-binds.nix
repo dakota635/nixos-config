@@ -5,14 +5,18 @@
     "$mainMod" = "SUPER";
 
     "$terminal" = "alacritty";
-    "$fileManager" = "thunar";
-    "$menu" = "fuzzel";
+
+    "$menu" = "rofi -show drun";
+
+    "$fileManagerTui" = "$terminal -e yazi";
+    "$fileManagerGui" = "thunar";
 
     bind = [
       "$mainMod, Return, exec, $terminal"
       "$mainMod SHIFT, Q, killactive"
       "$mainMod, m, exit"
-      "$mainMod, e, exec, $fileManager"
+      "$mainMod, e, exec, $fileManagerTui"
+      "$mainMod SHIFT, E, exec, $fileManagerGui"
       "$mainMod, v, togglefloating"
       "$mainMod, d, exec, $menu"
       "$mainMod, p, pseudo"
