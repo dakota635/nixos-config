@@ -1,9 +1,14 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ open-vm-tools ];
-
-  systemd.services.vmtoolsd.enable = true;
-  
   virtualisation.vmware.guest.enable = true;
+
+  services.xserver.videoDrivers = [ "vmware" ];
+
+  hardware.opengl.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    xorg.xf86video_vmware
+    mesa
+  ];
 }

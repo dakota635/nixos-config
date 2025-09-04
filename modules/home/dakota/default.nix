@@ -40,6 +40,6 @@
     ./applications/starship/starship.nix 
 
     # Terminal emulator
-    ./applications/ghostty/ghostty.nix
+    ./applications/alacritty/alacritty.nix
   ];
 }

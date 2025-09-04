@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
 
-    "$terminal" = "ghostty";
+    "$terminal" = "alacritty";
     "$fileManager" = "thunar";
     "$menu" = "fuzzel";
 

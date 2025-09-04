@@ -1,10 +1,17 @@
 { pkgs, ... }:
 
 {
+  services.xserver.videoDrivers = [ "modesetting" ];
+
   hardware = {
-      graphics.extraPackages = with pkgs; [
-        intel-media-driver   # Intel VAAPI driver for video decode
-        vaapiVdpau           # bridge for apps expecting VDPAU
+    cpu.intel.updateMicrocode = true;
+
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
       ];
+    };
   };
 }

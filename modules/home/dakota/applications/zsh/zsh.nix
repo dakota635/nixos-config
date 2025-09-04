@@ -7,6 +7,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    initContent = "fastfetch";
+
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/dakota/nixos-config";
     };

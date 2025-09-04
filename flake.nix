@@ -32,6 +32,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       imports = [
+        ./hosts/mermaid-man/flake.nix
         ./hosts/barnacle-boy/flake.nix
         ./hosts/dirty-bubble/flake.nix
       ];
