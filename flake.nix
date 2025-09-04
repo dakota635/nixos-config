@@ -31,6 +31,9 @@
   outputs = inputs@{ flake-parts, nixpkgs, home-manager, stylix, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
-      imports = [ ./hosts/barnacle-boy/definition-flake.nix ];
+      imports = [
+        ./hosts/barnacle-boy/flake.nix
+        ./hosts/dirty-bubble/flake.nix
+      ];
     };
   }
