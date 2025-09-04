@@ -60,17 +60,17 @@
   in {
     nixosConfigurations = {
       dakota-desktop-nixos = mkHost {
-        machinePath = ./machines/dakota-desktop-nixos/dakota-desktop-nixos-imports.nix;
+        machinePath = ./hosts/dakota-desktop-nixos/dakota-desktop-nixos-imports.nix;
         desktopEnv = desktopEnvs.hyprland;
       };
 
       dakota-laptop-nixos = mkHost {
-        machinePath = ./machines/dakota-laptop-nixos/dakota-laptop-nixos-imports.nix;
+        machinePath = ./hosts/dakota-laptop-nixos/dakota-laptop-nixos-imports.nix;
         desktopEnv = desktopEnvs.hyprland;
       };
 
       dakota-vmware-vm-nixos = mkHost {
-        machinePath = ./machines/dakota-vmware-vm-nixos/dakota-vmware-vm-nixos-imports.nix;
+        machinePath = ./hosts/dakota-vmware-vm-nixos/dakota-vmware-vm-nixos-imports.nix;
         desktopEnv = desktopEnvs.gnome;
       };
     };

@@ -31,7 +31,7 @@
         "hyprland/workspaces" = {
           format = "{icon}";
           on-click = "activate";
-          format-icons = { "1"=""; "2"=""; "3"=""; "4"="󰓇"; "5"="󰈙"; };
+          format-icons = { "1"=""; "2"=""; "3"=""; "4"=" "; "5"="󰍹 "; };
           persistent-workspaces = { "*" = [ 1 2 3 4 5 ]; };
         };
         "hyprland/window" = { format = "{}"; max-length = 80; };

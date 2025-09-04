@@ -8,7 +8,7 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-    image = ./assets/wallpaper/forest-studio-ghibli.png;
+    image = ../../../assets/wallpaper/forest-studio-ghibli.png;
     polarity = "dark";
   };
 
