@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  networking = {
+    hostName = "dirty-bubble";
+  };
+}

@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,6 +13,8 @@
       url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     rose-pine-hyprcursor = {
       url = "github:ndom91/rose-pine-hyprcursor";
@@ -26,53 +28,9 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
-  let
-    desktopEnvs = {
-      gnome = {
-        system = ./modules/nixos/imports/gnome-system-imports.nix;
-        home   = ./modules/home/dakota/imports/gnome-home-imports.nix;
-      };
-      hyprland = {
-        system = ./modules/nixos/imports/hyprland-system-imports.nix;
-        home   = ./modules/home/dakota/imports/hyprland-home-imports.nix;
-      };
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, stylix, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+      imports = [ ./hosts/barnacle-boy/definition-flake.nix ];
     };
-
-    mkHost = { machinePath, desktopEnv }:
-      nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
-          ./modules/nixos/imports/common-system-imports.nix
-          machinePath
-          desktopEnv.system
-          {
-            home-manager.users.dakota.imports = [
-              ./modules/home/dakota/imports/common-home-imports.nix
-              desktopEnv.home
-            ];
-          }
-        ];
-      };
-  in {
-    nixosConfigurations = {
-      dakota-desktop-nixos = mkHost {
-        machinePath = ./hosts/dakota-desktop-nixos/dakota-desktop-nixos-imports.nix;
-        desktopEnv = desktopEnvs.hyprland;
-      };
-
-      dakota-laptop-nixos = mkHost {
-        machinePath = ./hosts/dakota-laptop-nixos/dakota-laptop-nixos-imports.nix;
-        desktopEnv = desktopEnvs.hyprland;
-      };
-
-      dakota-vmware-vm-nixos = mkHost {
-        machinePath = ./hosts/dakota-vmware-vm-nixos/dakota-vmware-vm-nixos-imports.nix;
-        desktopEnv = desktopEnvs.gnome;
-      };
-    };
-  };
-}
+  }
