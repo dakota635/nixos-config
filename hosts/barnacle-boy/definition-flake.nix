@@ -8,13 +8,11 @@
       modules = [
         inputs.home-manager.nixosModules.home-manager
         inputs.stylix.nixosModules.stylix
-        ./imports.nix
-        ../../modules/nixos/imports/common-system-imports.nix
-        ../../modules/nixos/imports/hyprland-system-imports.nix
+        ./.
+        ../../modules/nixos
         {
           home-manager.users.dakota.imports = [
-            ../../modules/home/dakota/imports/common-home-imports.nix
-            ../../modules/home/dakota/imports/hyprland-home-imports.nix
+            ../../modules/home/dakota
           ];
         }
       ];
