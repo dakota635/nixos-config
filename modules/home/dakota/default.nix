@@ -13,7 +13,7 @@
     ./applications/browser/firefox/firefox.nix
 
     # Desktop environment / window manager
-    ./applications/desktop-environment/gnome/gnome-dconf.nix
+    ./applications/desktop-environment/gnome/gnome.nix
     ./applications/desktop-environment/hyprland/hyprland-settings.nix
     ./applications/desktop-environment/hyprland/hyprland-binds.nix
     ./applications/desktop-environment/waybar/waybar.nix

@@ -5,10 +5,16 @@
 
   services.xserver.videoDrivers = [ "vmware" ];
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    xorg.xf86video_vmware
-    mesa
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      xorg.xf86videovmware
+      mesa
+    ];
+    variables = {
+      WLR_RENDERER = "pixman";
+      WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    };
+  };
 }

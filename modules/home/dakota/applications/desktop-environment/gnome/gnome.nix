@@ -7,10 +7,12 @@
       "org/gnome/shell" = {
         enabled-extensions = [
           "blur-my-shell@aunetx"
+          "forge@jmmaranan.com"
         ];
+
         favorite-apps = [
           "firefox.desktop"
-          "com.mitchellh.ghostty.desktop"
+          "Alacritty.desktop"
           "code.desktop"
           "thunar.desktop"
         ];
@@ -25,5 +27,6 @@
 
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
+    forge
   ];
 }
