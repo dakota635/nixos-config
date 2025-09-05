@@ -10,6 +10,7 @@
       git
       killall
       neovim
+      qdirstat
       tree
       xdg-utils
       xorg.xinit
