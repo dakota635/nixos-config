@@ -11,6 +11,8 @@
 
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/dakota/nixos-config";
+      dev-java = "nix develop .#devshells.java";
+      dev-python = "nix develop .#devshells.python";
     };
 
     oh-my-zsh = {
