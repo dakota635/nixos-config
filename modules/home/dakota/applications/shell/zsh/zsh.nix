@@ -1,6 +1,8 @@
-{ ... }:
+{ lib, ... }:
 
-{
+let
+  NIXOS-CONFIG = "/home/dakota/nixos-config";
+in {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -10,9 +12,9 @@
     initContent = "fastfetch";
 
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/dakota/nixos-config";
-      dev-java = "nix develop .#devshells.java";
-      dev-python = "nix develop .#devshells.python";
+      rebuild = "sudo nixos-rebuild switch --flake ${NIXOS-CONFIG}";
+      dev-java = "nix develop ${NIXOS-CONFIG}#devShells.java"; 
+      dev-python = "nix develop ${NIXOS-CONFIG}#devShells.python";
     };
 
     oh-my-zsh = {

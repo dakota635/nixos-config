@@ -17,6 +17,8 @@
             echo "Python: $(python --version)"
             echo "Jupyter: $(jupyter --version 2>/dev/null || echo not found)"
           '';
+          category = "Info";
+          help = "Show Python and Jupyter versions";
         }
       ];
 

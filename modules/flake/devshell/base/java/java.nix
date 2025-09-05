@@ -17,6 +17,8 @@
             echo "JDK: $(java -version 2>&1 | head -n 1)"
             echo "Gradle: $(gradle --version 2>/dev/null || echo not found)"
           '';
+          category = "Info";
+          help = "Show Java and Gradle versions";
         }
       ];
 

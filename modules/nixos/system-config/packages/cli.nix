@@ -12,5 +12,9 @@
       xdg-utils
       xorg.xinit
     ];
+
+    defaultPackages = lib.mkForce [
+      pkgs.strace
+    ];
   };
 }
