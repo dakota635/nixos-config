@@ -2,6 +2,7 @@
 
 {
   imports = [
-    ./system-config
+    ./steam.nix
+    ./wine.nix
   ];
 }

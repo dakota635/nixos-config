@@ -19,7 +19,6 @@
     packages = with pkgs; [
       fastfetch
       mangohud
-      rofi
       spotify-player
       unimatrix
     ];

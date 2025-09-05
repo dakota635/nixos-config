@@ -12,7 +12,7 @@
 
         favorite-apps = [
           "firefox.desktop"
-          "Alacritty.desktop"
+          "com.mitchellh.ghostty.desktop"
           "code.desktop"
           "thunar.desktop"
         ];
