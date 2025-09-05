@@ -13,6 +13,9 @@
         # Nix
         bbenoist.nix
 
+        # DevShell
+        arrterian.nix-env-selector
+
         # Python
         ms-python.python
         ms-toolsai.jupyter

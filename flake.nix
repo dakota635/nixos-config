@@ -2,6 +2,11 @@
   description = "NixOS configuration";
 
   inputs = {
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
@@ -28,13 +33,21 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, stylix, ... }:
+  outputs = inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       imports = [
-        ./hosts/mermaid-man/flake.nix
+        # NixOS Hosts
+        # ./hosts/mermaid-man/flake.nix
         ./hosts/barnacle-boy/flake.nix
         ./hosts/dirty-bubble/flake.nix
+
+        # Devshell
+        ./modules/flake/devshell/base/java/java.nix
+        ./modules/flake/devshell/base/java/java-packages.nix
+
+        ./modules/flake/devshell/base/python/python.nix
+        ./modules/flake/devshell/base/python/python-packages.nix
       ];
     };
   }

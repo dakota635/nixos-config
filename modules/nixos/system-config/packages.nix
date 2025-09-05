@@ -13,14 +13,6 @@
       tree
       xdg-utils
       xorg.xinit
-
-      # Java
-      jdk
-
-      # Python
-      python3
-      python3Packages.jupyter
-      python3Packages.ipykernel
     ];
     
     defaultPackages = lib.mkForce [
