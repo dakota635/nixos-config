@@ -43,11 +43,11 @@
         ./hosts/dirty-bubble/flake.nix
 
         # Devshell
-        ./modules/flake/devshell/base/java/java.nix
-        ./modules/flake/devshell/base/java/java-packages.nix
+        ./modules/flake-parts/devshell/base/java/java.nix
+        ./modules/flake-parts/devshell/base/java/java-packages.nix
 
-        ./modules/flake/devshell/base/python/python.nix
-        ./modules/flake/devshell/base/python/python-packages.nix
+        ./modules/flake-parts/devshell/base/python/python.nix
+        ./modules/flake-parts/devshell/base/python/python-packages.nix
       ];
     };
   }

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  networking.hostName = "dirty-bubble";
+  
   virtualisation.vmware.guest.enable = true;
 
   services.xserver.videoDrivers = [ "vmware" ];

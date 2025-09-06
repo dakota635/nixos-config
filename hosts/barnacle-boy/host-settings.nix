@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  networking.hostName = "barnacle-boy";
+
   services.xserver.videoDrivers = [ "modesetting" ];
 
   hardware = {
