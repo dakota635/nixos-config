@@ -19,6 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    inputs.import-tree.url = "github:vic/import-tree";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     rose-pine-hyprcursor = {
@@ -33,21 +35,22 @@
     };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; }
       systems = [ "x86_64-linux" ];
+
+      options = {
+        custom.nixosConfigPath = inputs.nixpkgs.lib.mkOption {
+          type = inputs.nixpkgs.lib.types.str;
+          description = "The absolute path to the NixOS configuration directory.";
+        };
+      };
+
+      config = {
+        custom.nixosConfigPath = "/home/dakota/nixos-config";
+      };
+
       imports = [
-        # NixOS Hosts
-        # ./hosts/mermaid-man/flake.nix
-        ./hosts/barnacle-boy/flake.nix
-        ./hosts/dirty-bubble/flake.nix
-
-        # Devshell
-        ./modules/flake/devshell/base/java/java.nix
-        ./modules/flake/devshell/base/java/java-packages.nix
-
-        ./modules/flake/devshell/base/python/python.nix
-        ./modules/flake/devshell/base/python/python-packages.nix
+        (import-tree ./modules)
       ];
     };
   }

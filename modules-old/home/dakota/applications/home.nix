@@ -1,0 +1,26 @@
+{ pkgs, ... }:
+
+{
+  programs.home-manager.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+
+  home = {
+    username = "dakota";
+    homeDirectory = "/home/dakota";
+    stateVersion = "25.11";
+
+    sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "alacritty";
+      VISUAL = "nvim";
+    };
+
+    packages = with pkgs; [
+      fastfetch
+      mangohud
+      spotify-player
+      unimatrix
+    ];
+  };
+}
