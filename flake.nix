@@ -38,9 +38,9 @@
       systems = [ "x86_64-linux" ];
       imports = [
         # NixOS Hosts
-        # ./hosts/mermaid-man/flake.nix
-        ./hosts/barnacle-boy/flake.nix
-        ./hosts/dirty-bubble/flake.nix
+        # ./modules/flake-parts/hosts/mermaid-man/flake.nix
+        ./modules/flake-parts/hosts/barnacle-boy/flake.nix
+        ./modules/flake-parts/hosts/dirty-bubble/flake.nix
 
         # Devshell
         ./modules/flake-parts/devshell/base/java/java.nix

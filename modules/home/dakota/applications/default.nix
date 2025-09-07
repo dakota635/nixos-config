@@ -2,20 +2,14 @@
 
 {
   imports = [
-    ./desktop-environment
-    ./ide
+    ./audio
+    ./broswer
+    ./desktop-env
+    ./dev-tools
+    ./file-management
+    ./gaming
+    ./home-manager
     ./shell
-
-    ./cava.nix
-    ./firefox.nix
-    ./ghostty.nix
-    ./git.nix
-    ./gtk.nix
-    ./home.nix
-    ./mako.nix
-    ./mangohud.nix
-    ./rofi.nix
-    ./spotify-player.nix
-    ./yazi.nix
+    ./terminal
   ];
 }
