@@ -3,8 +3,8 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
-    image = ../../../../assets/wallpaper/forest-studio-ghibli.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/synth-midnight-dark.yaml";
+    image = ../../../../assets/wallpaper/synthwave-axiom-design.png;
     polarity = "dark";
   };
 }
