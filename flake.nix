@@ -52,11 +52,5 @@
       barnacle-boy = mkHost { hostPath = ./modules/hosts/barnacle-boy; };
       dirty-bubble  = mkHost { hostPath = ./modules/hosts/dirty-bubble; };
     };
-    devShells = {
-      "${system}" = {
-        basePython = import ./devShells/base/python/python.nix { inherit pkgs system; };
-        baseJava   = import ./devShells/base/java/java.nix { inherit pkgs system; };
-      };
-    };
   };
 }
