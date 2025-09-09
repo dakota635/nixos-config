@@ -28,15 +28,18 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }:
   let
-    mkHost = { machinePath }:
+    system = "x86_64-linux";
+    pkgs   = nixpkgs.legacyPackages.${system};
+    
+    mkHost = { hostPath }:
       nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = { inherit inputs; };
         modules = [
           ./modules/nixos
           home-manager.nixosModules.home-manager
           stylix.nixosModules.stylix
-          machinePath
+          hostPath
           {
             home-manager.users.dakota.imports = [
               ./modules/home/dakota
@@ -46,8 +49,14 @@
       };
   in {
     nixosConfigurations = {
-      barnacle-boy = mkHost { machinePath = ./modules/hosts/barnacle-boy; };
-      dirty-bubble  = mkHost { machinePath = ./modules/hosts/dirty-bubble; };
+      barnacle-boy = mkHost { hostPath = ./modules/hosts/barnacle-boy; };
+      dirty-bubble  = mkHost { hostPath = ./modules/hosts/dirty-bubble; };
+    };
+    devShells = {
+      "${system}" = {
+        basePython = import ./devShells/base/python/python.nix { inherit pkgs system; };
+        baseJava   = import ./devShells/base/java/java.nix { inherit pkgs system; };
+      };
     };
   };
 }
