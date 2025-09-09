@@ -7,7 +7,6 @@
       "org/gnome/shell" = {
         enabled-extensions = [
           "blur-my-shell@aunetx"
-          "forge@jmmaranan.com"
         ];
 
         favorite-apps = [
@@ -27,6 +26,5 @@
 
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
-    forge
   ];
 }
