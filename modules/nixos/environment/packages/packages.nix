@@ -8,6 +8,8 @@
       gh
       ghostty
       git
+      htop
+      killall
       neovim
       qdirstat
       rofi

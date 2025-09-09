@@ -31,7 +31,6 @@
   outputs = inputs@{ self, nixpkgs, home-manager, import-tree, stylix, ... }:
   let
     system = "x86_64-linux";
-    pkgs   = nixpkgs.legacyPackages.${system};
     
     mkHost = { hostPath }:
       nixpkgs.lib.nixosSystem {

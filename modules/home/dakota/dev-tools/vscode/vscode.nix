@@ -22,6 +22,7 @@
       ];
 
       userSettings = {
+        # VSCode UI customization
         "editor.fontFamily" = lib.mkForce "JetBrainsMono Nerd Font, Symbols Nerd Font, monospace";
         "editor.fontLigatures" = true;
       };
