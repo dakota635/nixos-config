@@ -5,7 +5,7 @@
     steam = {
       enable = true;
 
-      remotePlay.openFirewall = true;
+      remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = false;
     };
   };
