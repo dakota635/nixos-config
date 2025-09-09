@@ -1,7 +1,0 @@
-{ ... }:
-
-{
-  imports = [
-    ./dakota/dakota.nix
-  ];
-}
